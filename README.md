@@ -1,3 +1,6 @@
+[![CircleCI](https://circleci.com/gh/maksimru/go-linkedlist.svg?style=svg&circle-token=1ff20ea621c63005a3dab9250eb68790c1b5049f)](https://circleci.com/gh/maksimru/go-linkedlist)
+[![codecov](https://codecov.io/gh/maksimru/go-linkedlist/branch/main/graph/badge.svg?token=9R19KZFQ09)](https://codecov.io/gh/maksimru/go-linkedlist/)
+
 # High-Performance Linked List Datastructures
 
 ## Usage
