@@ -34,20 +34,3 @@ jobs:
         run: "git push https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git HEAD:refs/heads/v${{steps.semantic.outputs.new_release_major_version}}"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Install jfrog-cli
-        uses: jfrog/setup-jfrog-cli@v1
-      - name: Deploy composer package
-        if: steps.semantic.outputs.new_release_published == 'true'
-        env:
-          RELEASE_VERSION: ${{ steps.semantic.outputs.new_release_version }}
-          PACKAGE_NAME: ${{ secrets.PACKAGE_NAME }}
-          ARTIFACTORY_URL: ${{ secrets.ARTIFACTORY_URL }}
-          ARTIFACTORY_REPOSITORY: ${{ secrets.ARTIFACTORY_REPOSITORY }}
-          ARTIFACTORY_USER: ${{ secrets.ARTIFACTORY_USER }}
-          ARTIFACTORY_PASSWORD: ${{ secrets.ARTIFACTORY_PASSWORD }}
-          JFROG_CLI_OFFER_CONFIG: false
-        run: |
-          git archive --format zip --output package.zip ${GITHUB_SHA}
-          zip -q package.zip CHANGELOG.md
-          jfrog rt u package.zip ${ARTIFACTORY_REPOSITORY}/${PACKAGE_NAME}/package-v${RELEASE_VERSION}.zip --props "composer.version=v${RELEASE_VERSION}" --user=${ARTIFACTORY_USER} --password=${ARTIFACTORY_PASSWORD} --url=${ARTIFACTORY_URL}
