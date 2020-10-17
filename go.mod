@@ -1,4 +1,4 @@
-module github.com/maksimru/go-linkedlist
+module github.com/maksimru/go-hpds
 
 go 1.12
 
