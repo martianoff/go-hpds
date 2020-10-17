@@ -129,3 +129,22 @@ func TestSinglyLinkedList_Purge(t *testing.T) {
 	assert.Equal(t, 0, list.GetLength())
 	assert.Equal(t, "", list.Print())
 }
+
+func TestNode_Split(t *testing.T) {
+	var list = NewSinglyLinkedList()
+	list.Insert(1)
+	list.Insert(2)
+	list.Insert(3)
+	n := list.Insert(5)
+	list.Insert(6)
+	list.Insert(7)
+	list2 := n.Split()
+	assert.Equal(t, "1 -> 2 -> 3 -> 5", list.Print())
+	assert.Equal(t, "6 -> 7", list2.Print())
+	assert.Equal(t, 4, list.GetLength())
+	assert.Equal(t, 2, list2.GetLength())
+	assert.Equal(t, 5, list.GetTail().GetValue())
+	assert.Equal(t, 1, list.GetHead().GetValue())
+	assert.Equal(t, 7, list2.GetTail().GetValue())
+	assert.Equal(t, 6, list2.GetHead().GetValue())
+}

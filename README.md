@@ -31,8 +31,8 @@ list.Print() //returns "1 -> 2 -> 3 -> 5 -> 6 -> 7"
 | SinglyLinkedList  | GetTail  | O(1)  | O(1)  | Gets tail node |
 | SinglyLinkedList  | GetHead  | O(1)  | O(1)  | Gets head node |
 | SinglyLinkedList  | Reverse | O(N)  |  O(1)  | Reverses entire list |
-| SinglyLinkedList  | Insert | O(1)  | O(1)  | Insert element to the end |
-| SinglyLinkedList  | Prepend | O(1)  | O(1)  | Insert element to the begin |
+| SinglyLinkedList  | Insert | O(1)  | O(1)  | Inserts element to the end |
+| SinglyLinkedList  | Prepend | O(1)  | O(1)  | Inserts element to the begin |
 | SinglyLinkedList  | Print |  O(N)  | O(N)  | Prints linkedlist |
 
 All packages in this module are importable by other modules, except for packages
