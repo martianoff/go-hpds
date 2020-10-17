@@ -3,7 +3,8 @@
 
 # High-Performance Datastructures
 
-## SinglyLinkedList:
+----
+## SinglyLinkedList
 
 ### Usage
 
@@ -35,6 +36,7 @@ list.Print() //returns "1 -> 2 -> 3 -> 5 -> 6 -> 7"
 | SinglyLinkedList  | Reverse | O(N)  |  O(1)  | Reverses entire list |
 | SinglyLinkedList  | Append | O(1)  | O(1)  | Inserts element to the end |
 | SinglyLinkedList  | Prepend | O(1)  | O(1)  | Inserts element to the begin |
+| SinglyLinkedList  | Unshift | O(1)  | O(1)  | Shift element from the begin of linkedlist |
 | SinglyLinkedList  | Print |  O(N)  | O(N)  | Prints linkedlist |
 | Node (SinglyLinkedList)  | Split |  O(K)  | O(1)  | Splits linkedlist into two |
 | Node (SinglyLinkedList)  | ReverseFrom |  O(K)  | O(1)  | Reverses part of linkedlist |
@@ -44,7 +46,8 @@ list.Print() //returns "1 -> 2 -> 3 -> 5 -> 6 -> 7"
 | Node (SinglyLinkedList)  | GetNext |  O(1)  | O(1)  | Gets next node |
 | Node (SinglyLinkedList)  | GetValue |  O(1)  | O(1)  | Gets value of node |
 
-## DoublyLinkedList:
+----
+## DoublyLinkedList
 
 ### Usage
 
@@ -72,6 +75,8 @@ list.Print() //returns "1 <-> 3"
 | DoublyLinkedList  | Reverse | O(N)  |  O(1)  | Reverses entire list |
 | DoublyLinkedList  | Append | O(1)  | O(1)  | Inserts element to the end |
 | DoublyLinkedList  | Prepend | O(1)  | O(1)  | Inserts element to the begin |
+| DoublyLinkedList  | Pop | O(1)  | O(1)  | Pop element from the end of linkedlist |
+| DoublyLinkedList  | Unshift | O(1)  | O(1)  | Shift element from the begin of linkedlist |
 | DoublyLinkedList  | Print |  O(N)  | O(N)  | Prints linkedlist |
 | Node (DoublyLinkedList)  | Split |  O(K)  | O(1)  | Splits linkedlist into two |
 | Node (DoublyLinkedList)  | ReverseFrom |  O(K)  | O(1)  | Reverses part of linkedlist |
@@ -83,6 +88,40 @@ list.Print() //returns "1 <-> 3"
 | Node (DoublyLinkedList)  | GetNext |  O(1)  | O(1)  | Gets next node |
 | Node (DoublyLinkedList)  | GetPrev |  O(1)  | O(1)  | Gets prev node |
 | Node (DoublyLinkedList)  | GetValue |  O(1)  | O(1)  | Gets value of node |
+
+----
+## Queue
+
+### Usage
+
+```
+import "github.com/maksimru/go-hpds"
+import "github.com/maksimru/go-hpds/queue"
+
+queue := NewQueue()
+queue.Enqueue(1)
+queue.Enqueue(2)
+queue.Enqueue(3)
+queue.Enqueue(4)
+for !queue.IsEmpty() {
+    value := queue.Dequeue()
+    // process the queue
+}
+```
+
+### Methods
+
+|  Object  | Operation | Time Complexity  | Space Complexity   | Comment |
+| ------------ | ------------ | ------------ | ------------ | ------------ |
+| Queue  | Enqueue  | O(1)  |  O(1)  | Adds element to queue |
+| Queue  | Dequeue  | O(1)  |  O(1) | Pops element from top of queue |
+| Queue  | Top  | O(1)  | O(1)  | Returns top of queue (next candidate for dequeue) |
+| Queue  | Bottom  | O(1)  | O(1)  | Returns bottom of queue (last candidate for dequeue) |
+| Queue  | IsEmpty  | O(1)  | O(1)  | Checks queue is empty |
+| Queue  | GetLength | O(1)  |  O(1)  | Gets queue length |
+| Queue  | Purge | O(1)  |  O(1)  | Purges queue |
+
+---
 
 ## Testing
 

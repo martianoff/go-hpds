@@ -18,6 +18,28 @@ func TestDoublyLinkedList_Append(t *testing.T) {
 	assert.Equal(t, 20, list.GetHead().GetValue())
 }
 
+func TestDoublyLinkedList_Unshift(t *testing.T) {
+	var list = NewDoublyLinkedList()
+	list.Append(1)
+	list.Append(2)
+	n := list.Unshift()
+	assert.Equal(t, 1, list.GetLength())
+	assert.Equal(t, 1, n.GetValue())
+	assert.Equal(t, 2, list.GetHead().GetValue())
+	assert.Nil(t, list.GetHead().GetPrev())
+}
+
+func TestDoublyLinkedList_Pop(t *testing.T) {
+	var list = NewDoublyLinkedList()
+	list.Append(1)
+	list.Append(2)
+	n := list.Pop()
+	assert.Equal(t, 1, list.GetLength())
+	assert.Equal(t, 2, n.GetValue())
+	assert.Equal(t, 1, list.GetTail().GetValue())
+	assert.Nil(t, list.GetTail().GetNext())
+}
+
 func TestDoublyLinkedList_Print(t *testing.T) {
 	var list = NewDoublyLinkedList()
 	list.Append(1)
@@ -195,6 +217,16 @@ func TestNode_Remove2(t *testing.T) {
 	assert.Equal(t, 3, list.GetLength())
 	assert.Equal(t, 1, list.GetHead().GetValue())
 	assert.Equal(t, 4, list.GetTail().GetValue())
+}
+
+func TestNode_Remove3(t *testing.T) {
+	var list = NewDoublyLinkedList()
+	n := list.Append(5)
+	n.Remove()
+	assert.Equal(t, 0, list.GetLength())
+	assert.Nil(t, list.GetHead())
+	assert.Nil(t, list.GetTail())
+	assert.Equal(t, 5, n.GetValue())
 }
 
 func TestDoublyLinkedList_Join(t *testing.T) {
