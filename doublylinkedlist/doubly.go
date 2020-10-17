@@ -40,6 +40,24 @@ func (list *DoublyLinkedList) Prepend(value interface{}) *Node {
 	return list.head
 }
 
+// Pop element from the tail of linkedlist
+// Return removed Node
+// O(1) time, O(1) space
+func (list *DoublyLinkedList) Pop() *Node {
+	tail := list.GetTail()
+	tail.Remove()
+	return tail
+}
+
+// Shift element from the head of linkedlist
+// Return removed Node
+// O(1) time, O(1) space
+func (list *DoublyLinkedList) Unshift() *Node {
+	head := list.GetHead()
+	head.Remove()
+	return head
+}
+
 // Get head of linkedlist
 // Returns head Node
 // O(1) time, O(1) space
@@ -163,12 +181,11 @@ func (node *Node) GetList() *DoublyLinkedList {
 func (node *Node) Append(value interface{}) *Node {
 	if node.next == nil {
 		return node.GetList().Append(value)
-	} else {
-		newnode := NewNode(node.GetList(), value, node.next, node)
-		node.next.prev, node.next = newnode, newnode
-		node.GetList().length++
-		return newnode
 	}
+	newnode := NewNode(node.GetList(), value, node.next, node)
+	node.next.prev, node.next = newnode, newnode
+	node.GetList().length++
+	return newnode
 }
 
 // Prepend value before node
@@ -177,12 +194,11 @@ func (node *Node) Append(value interface{}) *Node {
 func (node *Node) Prepend(value interface{}) *Node {
 	if node.prev == nil {
 		return node.GetList().Prepend(value)
-	} else {
-		newnode := NewNode(node.GetList(), value, node, node.prev)
-		node.prev.next, node.prev = newnode, newnode
-		node.GetList().length++
-		return newnode
 	}
+	newnode := NewNode(node.GetList(), value, node, node.prev)
+	node.prev.next, node.prev = newnode, newnode
+	node.GetList().length++
+	return newnode
 }
 
 // Remove node
@@ -190,6 +206,8 @@ func (node *Node) Prepend(value interface{}) *Node {
 // O(1) time, O(1) space
 func (node *Node) Remove() *Node {
 	switch {
+	case node.next == nil && node.prev == nil:
+		node.prev, node.next, node.GetList().tail, node.GetList().head = nil, nil, nil, nil
 	case node.next == nil:
 		node.prev.next, node.GetList().tail = nil, node.prev
 	case node.prev == nil:

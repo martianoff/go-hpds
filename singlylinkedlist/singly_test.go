@@ -18,6 +18,16 @@ func TestSinglyLinkedList_Append(t *testing.T) {
 	assert.Equal(t, 20, list.GetHead().GetValue())
 }
 
+func TestSinglyLinkedList_Unshift(t *testing.T) {
+	var list = NewSinglyLinkedList()
+	list.Append(1)
+	list.Append(2)
+	n := list.Unshift()
+	assert.Equal(t, 1, list.GetLength())
+	assert.Equal(t, 1, n.GetValue())
+	assert.Equal(t, 2, list.GetHead().GetValue())
+}
+
 func TestSinglyLinkedList_Print(t *testing.T) {
 	var list = NewSinglyLinkedList()
 	list.Append(1)

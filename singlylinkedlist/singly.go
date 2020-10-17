@@ -41,6 +41,16 @@ func (list *SinglyLinkedList) Prepend(value interface{}) *Node {
 	return list.head
 }
 
+// Shift element from the head of linkedlist
+// Return removed Node
+// O(1) time, O(1) space
+func (list *SinglyLinkedList) Unshift() *Node {
+	head := list.GetHead()
+	list.head = list.head.next
+	list.length--
+	return head
+}
+
 // Get head of linkedlist
 // Returns head Node
 // O(1) time, O(1) space
