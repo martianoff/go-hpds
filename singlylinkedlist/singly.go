@@ -15,7 +15,7 @@ func NewSinglyLinkedList() *SinglyLinkedList {
 // Insert new value to linkedlist
 // Return inserted Node
 // O(1) time, O(1) space
-func (list *SinglyLinkedList) Insert(value interface{}) *Node {
+func (list *SinglyLinkedList) Append(value interface{}) *Node {
 	node := NewNode(list, value, nil)
 	if list.tail == nil {
 		list.tail, list.head = node, node
@@ -153,9 +153,13 @@ func (node *Node) GetList() *SinglyLinkedList {
 // Returns added node
 // O(1) time, O(1) space
 func (node *Node) Append(value interface{}) *Node {
-	node.next = NewNode(node.GetList(), value, node.next)
-	node.GetList().length++
-	return node.next
+	if node.next == nil {
+		return node.GetList().Append(value)
+	} else {
+		node.next = NewNode(node.GetList(), value, node.next)
+		node.GetList().length++
+		return node.next
+	}
 }
 
 // Append other linkedlist after node

@@ -15,7 +15,7 @@ func NewDoublyLinkedList() *DoublyLinkedList {
 // Insert new value to linkedlist
 // Return inserted Node
 // O(1) time, O(1) space
-func (list *DoublyLinkedList) Insert(value interface{}) *Node {
+func (list *DoublyLinkedList) Append(value interface{}) *Node {
 	node := NewNode(list, value, nil, list.tail)
 	if list.tail == nil {
 		list.tail, list.head = node, node
@@ -161,10 +161,28 @@ func (node *Node) GetList() *DoublyLinkedList {
 // Returns added node
 // O(1) time, O(1) space
 func (node *Node) Append(value interface{}) *Node {
-	newnode := NewNode(node.GetList(), value, node.next, node)
-	node.next.prev, node.next = newnode, newnode
-	node.GetList().length++
-	return newnode
+	if node.next == nil {
+		return node.GetList().Append(value)
+	} else {
+		newnode := NewNode(node.GetList(), value, node.next, node)
+		node.next.prev, node.next = newnode, newnode
+		node.GetList().length++
+		return newnode
+	}
+}
+
+// Prepend value before node
+// Returns added node
+// O(1) time, O(1) space
+func (node *Node) Prepend(value interface{}) *Node {
+	if node.prev == nil {
+		return node.GetList().Prepend(value)
+	} else {
+		newnode := NewNode(node.GetList(), value, node, node.prev)
+		node.prev.next, node.prev = newnode, newnode
+		node.GetList().length++
+		return newnode
+	}
 }
 
 // Remove node
