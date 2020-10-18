@@ -3,7 +3,7 @@
 
 # High-Performance Datastructures
 
-----
+---
 ## SinglyLinkedList
 
 ### Usage
@@ -46,7 +46,7 @@ list.Print() //returns "1 -> 2 -> 3 -> 5 -> 6 -> 7"
 | Node (SinglyLinkedList)  | GetNext |  O(1)  | O(1)  | Gets next node |
 | Node (SinglyLinkedList)  | GetValue |  O(1)  | O(1)  | Gets value of node |
 
-----
+---
 ## DoublyLinkedList
 
 ### Usage
@@ -89,7 +89,7 @@ list.Print() //returns "1 <-> 3"
 | Node (DoublyLinkedList)  | GetPrev |  O(1)  | O(1)  | Gets prev node |
 | Node (DoublyLinkedList)  | GetValue |  O(1)  | O(1)  | Gets value of node |
 
-----
+---
 ## Queue
 
 ### Usage
@@ -120,6 +120,38 @@ for !queue.IsEmpty() {
 | Queue  | IsEmpty  | O(1)  | O(1)  | Checks queue is empty |
 | Queue  | GetLength | O(1)  |  O(1)  | Gets queue length |
 | Queue  | Purge | O(1)  |  O(1)  | Purges queue |
+
+---
+## Stack
+
+### Usage
+
+```
+import "github.com/maksimru/go-hpds"
+import "github.com/maksimru/go-hpds/queue"
+
+stack := NewStack()
+stack.Push(1)
+stack.Push(2)
+stack.Push(3)
+stack.Push(4)
+for !stack.IsEmpty() {
+    value := stack.Pop()
+    // process the stack
+}
+```
+
+### Methods
+
+|  Object  | Operation | Time Complexity  | Space Complexity   | Comment |
+| ------------ | ------------ | ------------ | ------------ | ------------ |
+| Stack  | Push  | O(1)  |  O(1)  | Adds element to stack |
+| Stack  | Pop  | O(1)  |  O(1) | Pops element from top of stack |
+| Stack  | Top  | O(1)  | O(1)  | Get top of stack (last added) |
+| Stack  | Bottom  | O(1)  | O(1)  | Returns bottom of stack (first added) |
+| Stack  | IsEmpty  | O(1)  | O(1)  | Checks stack is empty |
+| Stack  | GetLength | O(1)  |  O(1)  | Gets stack length |
+| Stack  | Purge | O(1)  |  O(1)  | Purges stack |
 
 ---
 
