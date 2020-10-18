@@ -13,14 +13,14 @@ func NewQueue() *Queue {
 }
 
 // Insert new value to queue
-// Return inserted Node
+// Return nil
 // O(1) time, O(1) space
 func (queue *Queue) Enqueue(value interface{}) {
 	queue.data.Append(value)
 }
 
-// Prepend new value to the begin of queue
-// Return inserted Node
+// Extract value from queue
+// Return extracted value
 // O(1) time, O(1) space
 func (queue *Queue) Dequeue() interface{} {
 	if queue.IsEmpty() {
@@ -29,8 +29,8 @@ func (queue *Queue) Dequeue() interface{} {
 	return queue.data.Unshift().GetValue()
 }
 
-// Get head of queue
-// Returns head Node
+// Get top of queue
+// Returns top value
 // O(1) time, O(1) space
 func (queue *Queue) Top() interface{} {
 	if queue.IsEmpty() {
@@ -39,8 +39,8 @@ func (queue *Queue) Top() interface{} {
 	return queue.data.GetHead().GetValue()
 }
 
-// Get tail of queue
-// Returns tail Node
+// Get bottom of queue
+// Returns bottom value
 // O(1) time, O(1) space
 func (queue *Queue) Bottom() interface{} {
 	if queue.IsEmpty() {
