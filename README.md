@@ -128,7 +128,7 @@ for !queue.IsEmpty() {
 
 ```
 import "github.com/maksimru/go-hpds"
-import "github.com/maksimru/go-hpds/queue"
+import "github.com/maksimru/go-hpds/stack"
 
 stack := NewStack()
 stack.Push(1)
@@ -153,6 +153,57 @@ for !stack.IsEmpty() {
 | Stack  | GetLength | O(1)  |  O(1)  | Gets stack length |
 | Stack  | Purge | O(1)  |  O(1)  | Purges stack |
 
+---
+## MaxHeap
+
+### Usage
+
+```
+import "github.com/maksimru/go-hpds"
+import "github.com/maksimru/go-hpds/maxheap"
+
+arrSlice := []int{0,5,1,6,8,3,5,9,2,6}
+heap := NewMaxHeap(arraylist.NewIntArrayList(&arrSlice), comparator.NewIntComparator())
+heap.Remove() //returns 9
+```
+
+### Methods
+
+|  Object  | Operation | Time Complexity  | Space Complexity   | Comment |
+| ------------ | ------------ | ------------ | ------------ | ------------ |
+| MaxHeap  | Add  | O(log N)  |  O(1)  | Adds element to the heap |
+| MaxHeap  | Remove  | O(log N)  |  O(1) | Removes element from the top of the heap |
+| MaxHeap  | Top  | O(1)  | O(1)  | Get top of heap |
+| MaxHeap  | IsValid  | O(N)  | O(1)  | Checks heap is valid1 |
+| MaxHeap  | IsEmpty  | O(1)  | O(1)  | Checks heap is empty |
+| MaxHeap  | GetLength | O(1)  |  O(1)  | Gets length of the heap |
+| MaxHeap  | NewMaxHeap | O(N)  |  O(1)  | Build heap |
+---
+
+## MinHeap
+
+### Usage
+
+```
+import "github.com/maksimru/go-hpds"
+import "github.com/maksimru/go-hpds/minheap"
+
+arrSlice := []int{0,5,1,6,8,3,5,9,2,6}
+heap := NewMinHeap(arraylist.NewIntArrayList(&arrSlice), comparator.NewIntComparator())
+heap.Remove() //returns 0
+```
+
+### Methods
+
+|  Object  | Operation | Time Complexity  | Space Complexity   | Comment |
+| ------------ | ------------ | ------------ | ------------ | ------------ |
+| MinHeap  | Add  | O(log N)  |  O(1)  | Adds element to the heap |
+| MinHeap  | Remove  | O(log N)  |  O(1) | Removes element from the top of the heap |
+| MinHeap  | Top  | O(1)  | O(1)  | Get top of heap |
+| MinHeap  | IsValid  | O(N)  | O(1)  | Checks heap is valid1 |
+| MinHeap  | IsEmpty  | O(1)  | O(1)  | Checks heap is empty |
+| MinHeap  | GetLength | O(1)  |  O(1)  | Gets length of the heap |
+| MinHeap  | NewMinHeap | O(N)  |  O(1)  | Build heap |
 ---
 
 ## Testing
