@@ -18,93 +18,93 @@ func (list AbstractArrayList) Swap(from int, to int) {
 }
 
 type IntArrayList struct {
-	data *[]int
+	data []int
 	AbstractArrayList
 }
 
-func NewIntArrayList(arr *[]int) IntArrayList {
+func NewIntArrayList(arr []int) IntArrayList {
 	list := IntArrayList{arr, AbstractArrayList{}}
 	list.AbstractArrayList.ArrayList = list
 	return list
 }
 
 func (list IntArrayList) Get(index int) interface{} {
-	return (*list.data)[index]
+	return list.data[index]
 }
 
 func (list IntArrayList) Set(index int, value interface{}) {
-	(*list.data)[index] = value.(int)
+	list.data[index] = value.(int)
 }
 
 func (list IntArrayList) GetLength() int {
-	return len(*list.data)
+	return len(list.data)
 }
 
 type Float32ArrayList struct {
-	data *[]float32
+	data []float32
 	AbstractArrayList
 }
 
-func NewFloat32ArrayList(arr *[]float32) Float32ArrayList {
+func NewFloat32ArrayList(arr []float32) Float32ArrayList {
 	list := Float32ArrayList{arr, AbstractArrayList{}}
 	list.AbstractArrayList.ArrayList = list
 	return list
 }
 
 func (list Float32ArrayList) Get(index int) interface{} {
-	return (*list.data)[index]
+	return list.data[index]
 }
 
 func (list Float32ArrayList) Set(index int, value interface{}) {
-	(*list.data)[index] = value.(float32)
+	list.data[index] = value.(float32)
 }
 
 func (list Float32ArrayList) GetLength() int {
-	return len(*list.data)
+	return len(list.data)
 }
 
 type Float64ArrayList struct {
-	data *[]float64
+	data []float64
 	AbstractArrayList
 }
 
-func NewFloat64ArrayList(arr *[]float64) Float64ArrayList {
+func NewFloat64ArrayList(arr []float64) Float64ArrayList {
 	list := Float64ArrayList{arr, AbstractArrayList{}}
 	list.AbstractArrayList.ArrayList = list
 	return list
 }
 
 func (list Float64ArrayList) Get(index int) interface{} {
-	return (*list.data)[index]
+	return list.data[index]
 }
 
 func (list Float64ArrayList) Set(index int, value interface{}) {
-	(*list.data)[index] = value.(float64)
+	list.data[index] = value.(float64)
 }
 
 func (list Float64ArrayList) GetLength() int {
-	return len(*list.data)
+	return len(list.data)
 }
 
 type StringArrayList struct {
-	data *[]string
+	data []string
 	AbstractArrayList
 }
 
-func NewStringArrayList(arr *[]string) StringArrayList {
+func NewStringArrayList(arr []string) StringArrayList {
 	list := StringArrayList{arr, AbstractArrayList{}}
 	list.AbstractArrayList.ArrayList = list
 	return list
 }
 
 func (list StringArrayList) Get(index int) interface{} {
-	return (*list.data)[index]
+	return list.data[index]
 }
 
 func (list StringArrayList) Set(index int, value interface{}) {
-	(*list.data)[index] = value.(string)
+	list.data[index] = value.(string)
 }
 
 func (list StringArrayList) GetLength() int {
-	return len(*list.data)
+	return len(list.data)
 }
