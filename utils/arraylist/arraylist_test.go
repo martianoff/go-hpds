@@ -12,7 +12,7 @@ func getArrayInt() [10]int {
 func TestIntArrayList_Get(t *testing.T) {
 	arr := getArrayInt()
 	slice := arr[:]
-	c := NewIntArrayList(&slice)
+	c := NewIntArrayList(slice)
 	assert.Equal(t, 0, c.Get(0))
 	assert.Equal(t, 6, c.Get(3))
 	assert.Equal(t, 6, c.Get(9))
@@ -23,7 +23,7 @@ func TestIntArrayList_Get(t *testing.T) {
 func TestIntArrayList_Set(t *testing.T) {
 	arr := getArrayInt()
 	slice := arr[:]
-	c := NewIntArrayList(&slice)
+	c := NewIntArrayList(slice)
 	c.Set(0, 50)
 	assert.Equal(t, 50, c.Get(0))
 	assert.Panics(t, func() { c.Set(20, 2) })
@@ -32,7 +32,7 @@ func TestIntArrayList_Set(t *testing.T) {
 func TestIntArrayList_Swap(t *testing.T) {
 	arr := getArrayInt()
 	slice := arr[:]
-	c := NewIntArrayList(&slice)
+	c := NewIntArrayList(slice)
 	c.Swap(0, 1)
 	assert.Equal(t, 5, c.Get(0))
 	assert.Equal(t, 0, c.Get(1))
@@ -48,7 +48,7 @@ func getArrayFloat32() [10]float32 {
 func TestFloat32ArrayList_Get(t *testing.T) {
 	arr := getArrayFloat32()
 	slice := arr[:]
-	c := NewFloat32ArrayList(&slice)
+	c := NewFloat32ArrayList(slice)
 	assert.Equal(t, float32(0), c.Get(0))
 	assert.Equal(t, float32(6), c.Get(3))
 	assert.Equal(t, float32(6), c.Get(9))
@@ -59,7 +59,7 @@ func TestFloat32ArrayList_Get(t *testing.T) {
 func TestFloat32ArrayList_Set(t *testing.T) {
 	arr := getArrayFloat32()
 	slice := arr[:]
-	c := NewFloat32ArrayList(&slice)
+	c := NewFloat32ArrayList(slice)
 	c.Set(0, float32(50))
 	assert.Equal(t, float32(50), c.Get(0))
 	assert.Panics(t, func() { c.Set(20, 2) })
@@ -68,7 +68,7 @@ func TestFloat32ArrayList_Set(t *testing.T) {
 func TestFloat32ArrayList_Swap(t *testing.T) {
 	arr := getArrayFloat32()
 	slice := arr[:]
-	c := NewFloat32ArrayList(&slice)
+	c := NewFloat32ArrayList(slice)
 	c.Swap(0, 1)
 	assert.Equal(t, float32(5), c.Get(0))
 	assert.Equal(t, float32(0), c.Get(1))
@@ -84,7 +84,7 @@ func getArrayFloat64() [10]float64 {
 func TestFloat64ArrayList_Get(t *testing.T) {
 	arr := getArrayFloat64()
 	slice := arr[:]
-	c := NewFloat64ArrayList(&slice)
+	c := NewFloat64ArrayList(slice)
 	assert.Equal(t, float64(0), c.Get(0))
 	assert.Equal(t, float64(6), c.Get(3))
 	assert.Equal(t, float64(6), c.Get(9))
@@ -95,7 +95,7 @@ func TestFloat64ArrayList_Get(t *testing.T) {
 func TestFloat64ArrayList_Set(t *testing.T) {
 	arr := getArrayFloat64()
 	slice := arr[:]
-	c := NewFloat64ArrayList(&slice)
+	c := NewFloat64ArrayList(slice)
 	c.Set(0, float64(50))
 	assert.Equal(t, float64(50), c.Get(0))
 	assert.Panics(t, func() { c.Set(20, 2) })
@@ -104,7 +104,7 @@ func TestFloat64ArrayList_Set(t *testing.T) {
 func TestFloat64ArrayList_Swap(t *testing.T) {
 	arr := getArrayFloat64()
 	slice := arr[:]
-	c := NewFloat64ArrayList(&slice)
+	c := NewFloat64ArrayList(slice)
 	c.Swap(0, 1)
 	assert.Equal(t, float64(5), c.Get(0))
 	assert.Equal(t, float64(0), c.Get(1))
@@ -120,7 +120,7 @@ func getArrayString() [10]string {
 func TestStringArrayList_Get(t *testing.T) {
 	arr := getArrayString()
 	slice := arr[:]
-	c := NewStringArrayList(&slice)
+	c := NewStringArrayList(slice)
 	assert.Equal(t, "a", c.Get(0))
 	assert.Equal(t, "d", c.Get(3))
 	assert.Equal(t, "j", c.Get(9))
@@ -131,7 +131,7 @@ func TestStringArrayList_Get(t *testing.T) {
 func TestStringArrayList_Set(t *testing.T) {
 	arr := getArrayString()
 	slice := arr[:]
-	c := NewStringArrayList(&slice)
+	c := NewStringArrayList(slice)
 	c.Set(0, "x")
 	assert.Equal(t, "x", c.Get(0))
 	assert.Panics(t, func() { c.Set(20, "y") })
@@ -140,7 +140,7 @@ func TestStringArrayList_Set(t *testing.T) {
 func TestStringArrayList_Swap(t *testing.T) {
 	arr := getArrayString()
 	slice := arr[:]
-	c := NewStringArrayList(&slice)
+	c := NewStringArrayList(slice)
 	c.Swap(0, 1)
 	assert.Equal(t, "b", c.Get(0))
 	assert.Equal(t, "a", c.Get(1))

@@ -163,7 +163,7 @@ import "github.com/maksimru/go-hpds"
 import "github.com/maksimru/go-hpds/maxheap"
 
 arrSlice := []int{0,5,1,6,8,3,5,9,2,6}
-heap := NewMaxHeap(arraylist.NewIntArrayList(&arrSlice), comparator.NewIntComparator())
+heap := NewMaxHeap(arraylist.NewIntArrayList(arrSlice), comparator.NewIntComparator())
 heap.Remove() //returns 9
 ```
 
@@ -189,7 +189,7 @@ import "github.com/maksimru/go-hpds"
 import "github.com/maksimru/go-hpds/minheap"
 
 arrSlice := []int{0,5,1,6,8,3,5,9,2,6}
-heap := NewMinHeap(arraylist.NewIntArrayList(&arrSlice), comparator.NewIntComparator())
+heap := NewMinHeap(arraylist.NewIntArrayList(arrSlice), comparator.NewIntComparator())
 heap.Remove() //returns 0
 ```
 
@@ -204,6 +204,33 @@ heap.Remove() //returns 0
 | MinHeap  | IsEmpty  | O(1)  | O(1)  | Checks heap is empty |
 | MinHeap  | GetLength | O(1)  |  O(1)  | Gets length of the heap |
 | MinHeap  | NewMinHeap | O(N)  |  O(1)  | Build heap |
+---
+
+## PriorityQueue
+
+### Usage
+
+```
+import "github.com/maksimru/go-hpds"
+import "github.com/maksimru/go-hpds/priorityqueue"
+
+arr := []IntPrioritizedValue{NewIntPrioritizedValue(21,5),NewIntPrioritizedValue(2,7),NewIntPrioritizedValue(432,1)}
+pq := NewPriorityQueue(NewIntPrioritizedValueList(arr), NewIntPriorityComparator())
+for !pq.IsEmpty() {
+    value := pq.Dequeue() //returns instance of IntPrioritizedValue value = 2, priority = 7
+}
+```
+
+### Methods
+
+|  Object  | Operation | Time Complexity  | Space Complexity   | Comment |
+| ------------ | ------------ | ------------ | ------------ | ------------ |
+| PriorityQueue  | Enqueue  | O(log N)  |  O(1)  | Adds element to the priority queue |
+| PriorityQueue  | Dequeue  | O(log N)  |  O(1) | Removes element from the top of the priority queue |
+| PriorityQueue  | Top  | O(1)  | O(1)  | Get top of priority queue |
+| PriorityQueue  | IsEmpty  | O(1)  | O(1)  | Checks priority queue is empty |
+| PriorityQueue  | GetLength | O(1)  |  O(1)  | Gets length of the priority queue |
+| PriorityQueue  | NewPriorityQueue | O(N)  |  O(1)  | Build priority queue |
 ---
 
 ## Testing
