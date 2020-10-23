@@ -135,8 +135,8 @@ func (heap *MaxHeap) Top() interface{} {
 	return heap.data.Get(0)
 }
 
-// Get top of the heap
-// Return value on top
+// Extract value from top of the heap
+// Return extracted value
 // O(log N) time, O(1) space
 func (heap *MaxHeap) Remove() interface{} {
 	heap.swap(0, heap.GetLength()-1)
