@@ -1,5 +1,7 @@
 [![CircleCI](https://circleci.com/gh/maksimru/go-hpds.svg?style=svg&circle-token=1ff20ea621c63005a3dab9250eb68790c1b5049f)](https://circleci.com/gh/maksimru/go-hpds)
 [![codecov](https://codecov.io/gh/maksimru/go-hpds/branch/master/graph/badge.svg?token=9R19KZFQ09)](https://codecov.io/gh/maksimru/go-hpds/)
+[![PkgGoDev](https://pkg.go.dev/badge/github.com/maksimru/go-hpds)](https://pkg.go.dev/github.com/maksimru/go-hpds)
+[![Go Report Card](https://goreportcard.com/badge/github.com/maksimru/go-hpds)](https://goreportcard.com/report/github.com/maksimru/go-hpds)
 
 # High-Performance Datastructures
 
