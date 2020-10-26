@@ -1,7 +1,19 @@
 [![CircleCI](https://circleci.com/gh/maksimru/go-hpds.svg?style=svg&circle-token=1ff20ea621c63005a3dab9250eb68790c1b5049f)](https://circleci.com/gh/maksimru/go-hpds)
 [![codecov](https://codecov.io/gh/maksimru/go-hpds/branch/master/graph/badge.svg?token=9R19KZFQ09)](https://codecov.io/gh/maksimru/go-hpds/)
+[![PkgGoDev](https://pkg.go.dev/badge/github.com/maksimru/go-hpds)](https://pkg.go.dev/github.com/maksimru/go-hpds)
+[![Go Report Card](https://goreportcard.com/badge/github.com/maksimru/go-hpds)](https://goreportcard.com/report/github.com/maksimru/go-hpds)
 
 # High-Performance Datastructures
+
+## Supported Data Structures
+- [SinglyLinkedList](#SinglyLinkedList)
+- [DoublyLinkedList](#DoublyLinkedList)
+- [Queue](#Queue)
+- [Stack](#Stack)
+- [MaxHeap](#MaxHeap)
+- [MinHeap](#MinHeap)
+- [PriorityQueue](#PriorityQueue)
+- [Trie](#Trie)
 
 ---
 ## SinglyLinkedList
@@ -231,6 +243,40 @@ for !pq.IsEmpty() {
 | PriorityQueue  | IsEmpty  | O(1)  | O(1)  | Checks priority queue is empty |
 | PriorityQueue  | GetLength | O(1)  |  O(1)  | Gets length of the priority queue |
 | PriorityQueue  | NewPriorityQueue | O(N)  |  O(1)  | Build priority queue |
+---
+
+## Trie
+
+### Usage
+
+```
+import "github.com/maksimru/go-hpds"
+import "github.com/maksimru/go-hpds/trie"
+
+var trie = NewTrie()
+trie.Add("word", 1)
+trie.Add("work", 2)
+trie.Add("wor", 3)
+trie.Add("war", 4)
+trie.Add("won", 5)
+v, s := trie.SearchPattern("w?r") //s will return 3 and 4
+```
+
+### Methods
+
+|  Object  | Operation | Time Complexity  | Space Complexity   | Comment |
+| ------------ | ------------ | ------------ | ------------ | ------------ |
+| -  | NewTrie  | O(1)  | O(1)  | Builds empty trie |
+| Trie  | GetRoot  | O(1)  |  O(1)  | Returns root trie node |
+| Trie  | Add  | O(M)  |  O(M) | Adds word with custom value to the trie |
+| Trie  | Search  | O(M)  | O(1)  | Searches word in trie using exact match |
+| Trie  | SearchPrefix  | O(M+N*L)  | O(1)  | Searches words in trie using prefix |
+| Trie  | SearchPattern  | O(M*A^X)  | O(1)  | Searches keyword in Trie using pattern match, "?" will match any single char |
+| -  | NewNode | O(1)  |  O(1)  | Creates node |
+| Node (Trie)  | GetChar | O(1)  |  O(1)  | Get character in specific node |
+| Node (Trie)  | GetValue | O(1)  |  O(1)  | Get value in specific node |
+| Node (Trie)  | HasTerminator | O(1)  |  O(1)  | Checks if node is end of word |
+| Node (Trie)  | HasChildNodes | O(1)  |  O(1)  | Checks if node has sub nodes |
 ---
 
 ## Testing
