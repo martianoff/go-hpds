@@ -253,11 +253,13 @@ for !pq.IsEmpty() {
 import "github.com/maksimru/go-hpds"
 import "github.com/maksimru/go-hpds/trie"
 
-arr := []IntPrioritizedValue{NewIntPrioritizedValue(21,5),NewIntPrioritizedValue(2,7),NewIntPrioritizedValue(432,1)}
-pq := NewPriorityQueue(NewIntPrioritizedValueList(arr), NewIntPriorityComparator())
-for !pq.IsEmpty() {
-    value := pq.Dequeue() //returns instance of IntPrioritizedValue value = 2, priority = 7
-}
+var trie = NewTrie()
+trie.Add("word", 1)
+trie.Add("work", 2)
+trie.Add("wor", 3)
+trie.Add("war", 4)
+trie.Add("won", 5)
+v, s := trie.SearchPattern("w?r") //s will return 3 and 4
 ```
 
 ### Methods
