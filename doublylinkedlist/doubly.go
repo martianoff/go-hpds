@@ -100,7 +100,7 @@ func (list *DoublyLinkedList) Reverse() *Node {
 
 // Join other linked list to the end
 // Returns new tail Node
-// O(N) time, O(1) space
+// O(1) time, O(1) space
 func (list *DoublyLinkedList) Join(other *DoublyLinkedList) *Node {
 	if list.head == nil {
 		list.head = other.head
@@ -111,6 +111,7 @@ func (list *DoublyLinkedList) Join(other *DoublyLinkedList) *Node {
 		list.length += other.length
 		list.tail = other.tail
 	}
+	//TODO: list property of joined nodes need to be updated
 	return list.tail
 }
 
