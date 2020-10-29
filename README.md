@@ -279,6 +279,32 @@ v, s := trie.SearchPattern("w?r") //s will return 3 and 4
 | Node (Trie)  | HasChildNodes | O(1)  |  O(1)  | Checks if node has sub nodes |
 ---
 
+## Union-Find (Disjoint-Set)
+
+### Usage
+
+```
+import "github.com/maksimru/go-hpds"
+import "github.com/maksimru/go-hpds/unionfind"
+
+union := NewUnionFind()
+union.Union(1,2)
+union.Union(2,3)
+union.Union(4,3)
+node := union.FindInSet(4)  //returns Node with value 1 and rank 4, all for nodes are in union
+```
+
+### Methods
+
+|  Object  | Operation | Time Complexity  | Space Complexity   | Comment |
+| ------------ | ------------ | ------------ | ------------ | ------------ |
+| -  | NewUnionFind  | O(1)  | O(1)  | Builds empty union-find |
+| UnionFind  | FindInSet  | O(M)  |  O(1)  | Returns parent node of the union searching by value of its member |
+| UnionFind  | Union  | O(M)  |  O(M) | Joins two unions using any values belonging to them |
+| -  | NewNode | O(1)  |  O(1)  | Creates node |
+| Node (UnionFind)  | GetRank | O(1)  |  O(1)  | Get rank in specific node |
+| Node (UnionFind)  | GetValue | O(1)  |  O(1)  | Get value of specific node |
+---
 ## Testing
 
 To run all tests in this module:
