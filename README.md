@@ -14,6 +14,7 @@
 - [MinHeap](#MinHeap)
 - [PriorityQueue](#PriorityQueue)
 - [Trie](#Trie)
+- [Union-Find aka Disjoint-Set](#Union-Find)
 
 ---
 ## SinglyLinkedList
