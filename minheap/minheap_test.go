@@ -14,7 +14,7 @@ func getArray() [10]int {
 func TestMinHeap_NewMinHeap(t *testing.T) {
 	arr := getArray()
 	slice := arr[:]
-	heap := NewMinHeap(arraylist.NewIntArrayList(slice), nil)
+	heap := NewMinHeap(arraylist.NewIntArrayList(slice), comparator.NewIntComparator())
 	assert.Equal(t, 10, heap.GetLength())
 	assert.Equal(t, 0, heap.Top())
 	assert.Equal(t, true, heap.IsValid())
