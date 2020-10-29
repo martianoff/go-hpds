@@ -291,7 +291,7 @@ union := NewUnionFind()
 union.Union(1,2)
 union.Union(2,3)
 union.Union(4,3)
-node := union.FindInSet(4)  //returns Node with value 1 and rank 4, all for nodes are in union
+node := union.FindInSet(4)  //returns Node with value 1 and rank 4, meaning that all four nodes are in union
 ```
 
 ### Methods
