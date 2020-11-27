@@ -14,7 +14,7 @@
 - [MinHeap](#MinHeap)
 - [PriorityQueue](#PriorityQueue)
 - [Trie](#Trie)
-- [Union-Find aka Disjoint-Set](#Union-Find)
+- [Union-Find aka Disjoint-Set](#Union-find-Disjoint-set)
 
 ---
 ## SinglyLinkedList
@@ -276,7 +276,7 @@ v, s := trie.SearchPattern("w?r") //s will return 3 and 4
 | -  | NewNode | O(1)  |  O(1)  | Creates node |
 | Node (Trie)  | GetChar | O(1)  |  O(1)  | Get character in specific node |
 | Node (Trie)  | GetValue | O(1)  |  O(1)  | Get value in specific node |
-| Node (Trie)  | HasTerminator | O(1)  |  O(1)  | Checks if node is end of word |
+| Node (Trie)  | HasTerminator | O(1)  |  O(1)  | Checks if node is the end of word |
 | Node (Trie)  | HasChildNodes | O(1)  |  O(1)  | Checks if node has sub nodes |
 ---
 
@@ -302,6 +302,7 @@ node := union.FindInSet(4)  //returns Node with value 1 and rank 4, meaning that
 | -  | NewUnionFind  | O(1)  | O(1)  | Builds empty union-find |
 | UnionFind  | FindInSet  | O(M)  |  O(1)  | Returns parent node of the union searching by value of its member |
 | UnionFind  | Union  | O(M)  |  O(M) | Joins two unions using any values belonging to them |
+| UnionFind  | Has | O(1)  |  O(1)  | Checks if specific union exists |
 | -  | NewNode | O(1)  |  O(1)  | Creates node |
 | Node (UnionFind)  | GetRank | O(1)  |  O(1)  | Get rank in specific node |
 | Node (UnionFind)  | GetValue | O(1)  |  O(1)  | Get value of specific node |

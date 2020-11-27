@@ -28,6 +28,16 @@ func (union *UnionFind) FindInSet(value interface{}) *Node {
 	return node.parent
 }
 
+// Check if UnionFind has union for specific value
+// Return true if union exists
+// O(1) time, O(1) space
+func (union *UnionFind) Has(value interface{}) bool {
+	if _, exists := union.data[value]; exists {
+		return true
+	}
+	return false
+}
+
 // Join two unions using any values belonging to them
 // Return new union's parent Node
 // O(m*a(n)) time, O(m) space (approximately O(m), where m is the number of calls, a(n) is the inverse Ackermann function)
