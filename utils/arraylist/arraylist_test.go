@@ -96,6 +96,25 @@ func TestFloat32ArrayList_Swap(t *testing.T) {
 	assert.Equal(t, float32(0), c.Get(9))
 }
 
+func TestFloat32ArrayList_Add(t *testing.T) {
+	c := NewFloat32ArrayList(make([]float32, 0))
+	c.Add(float32(50))
+	c.Add(float32(32))
+	assert.Equal(t, float32(50), c.Get(0))
+	assert.Equal(t, float32(32), c.Get(1))
+	assert.Equal(t, 2, c.GetLength())
+}
+
+func TestFloat32ArrayList_Remove(t *testing.T) {
+	c := NewFloat32ArrayList(make([]float32, 0))
+	c.Add(float32(50))
+	c.Add(float32(32))
+	assert.Equal(t, float32(32), c.RemoveLast())
+	assert.Equal(t, float32(50), c.Get(0))
+	assert.Panics(t, func() { c.Get(1) })
+	assert.Equal(t, 1, c.GetLength())
+}
+
 func getArrayFloat64() [10]float64 {
 	return [...]float64{0, 5, 1, 6, 8, 3, 5, 9, 2, 6}
 }
@@ -132,6 +151,25 @@ func TestFloat64ArrayList_Swap(t *testing.T) {
 	assert.Equal(t, float64(0), c.Get(9))
 }
 
+func TestFloat64ArrayList_Add(t *testing.T) {
+	c := NewFloat64ArrayList(make([]float64, 0))
+	c.Add(float64(50))
+	c.Add(float64(32))
+	assert.Equal(t, float64(50), c.Get(0))
+	assert.Equal(t, float64(32), c.Get(1))
+	assert.Equal(t, 2, c.GetLength())
+}
+
+func TestFloat64ArrayList_Remove(t *testing.T) {
+	c := NewFloat64ArrayList(make([]float64, 0))
+	c.Add(float64(50))
+	c.Add(float64(32))
+	assert.Equal(t, float64(32), c.RemoveLast())
+	assert.Equal(t, float64(50), c.Get(0))
+	assert.Panics(t, func() { c.Get(1) })
+	assert.Equal(t, 1, c.GetLength())
+}
+
 func getArrayString() [10]string {
 	return [...]string{"a", "b", "c", "d", "e", "f", "g", "h", "i", "j"}
 }
@@ -166,4 +204,23 @@ func TestStringArrayList_Swap(t *testing.T) {
 	c.Swap(1, 9)
 	assert.Equal(t, "j", c.Get(1))
 	assert.Equal(t, "a", c.Get(9))
+}
+
+func TestStringArrayList_Add(t *testing.T) {
+	c := NewStringArrayList(make([]string, 0))
+	c.Add("foo")
+	c.Add("bar")
+	assert.Equal(t, "foo", c.Get(0))
+	assert.Equal(t, "bar", c.Get(1))
+	assert.Equal(t, 2, c.GetLength())
+}
+
+func TestStringArrayList_Remove(t *testing.T) {
+	c := NewStringArrayList(make([]string, 0))
+	c.Add("foo")
+	c.Add("bar")
+	assert.Equal(t, "bar", c.RemoveLast())
+	assert.Equal(t, "foo", c.Get(0))
+	assert.Panics(t, func() { c.Get(1) })
+	assert.Equal(t, 1, c.GetLength())
 }
