@@ -29,6 +29,25 @@ func TestIntArrayList_Set(t *testing.T) {
 	assert.Panics(t, func() { c.Set(20, 2) })
 }
 
+func TestIntArrayList_Add(t *testing.T) {
+	c := NewIntArrayList(make([]int, 0))
+	c.Add(50)
+	c.Add(32)
+	assert.Equal(t, 50, c.Get(0))
+	assert.Equal(t, 32, c.Get(1))
+	assert.Equal(t, 2, c.GetLength())
+}
+
+func TestIntArrayList_Remove(t *testing.T) {
+	c := NewIntArrayList(make([]int, 0))
+	c.Add(50)
+	c.Add(32)
+	assert.Equal(t, 32, c.RemoveLast())
+	assert.Equal(t, 50, c.Get(0))
+	assert.Panics(t, func() { c.Get(1) })
+	assert.Equal(t, 1, c.GetLength())
+}
+
 func TestIntArrayList_Swap(t *testing.T) {
 	arr := getArrayInt()
 	slice := arr[:]

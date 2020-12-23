@@ -141,8 +141,9 @@ func (heap *MinHeap) Top() interface{} {
 func (heap *MinHeap) Remove() interface{} {
 	heap.swap(0, heap.GetLength()-1)
 	heap.length--
+
 	heap.siftdown(0)
-	return heap.data.Get(heap.GetLength())
+	return heap.data.RemoveLast()
 }
 
 // Adds value to the heap
@@ -150,7 +151,7 @@ func (heap *MinHeap) Remove() interface{} {
 // O(log N) time, O(1) space
 func (heap *MinHeap) Add(value interface{}) {
 	heap.length++
-	heap.data.Set(heap.length-1, value)
+	heap.data.Add(value)
 	heap.siftup(heap.length - 1)
 }
 

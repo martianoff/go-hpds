@@ -33,22 +33,32 @@ type IntPrioritizedValueList struct {
 	arraylist.AbstractArrayList
 }
 
-func NewIntPrioritizedValueList(arr []IntPrioritizedValue) IntPrioritizedValueList {
+func NewIntPrioritizedValueList(arr []IntPrioritizedValue) *IntPrioritizedValueList {
 	list := IntPrioritizedValueList{arr, arraylist.AbstractArrayList{}}
-	list.AbstractArrayList.ArrayList = list
-	return list
+	list.AbstractArrayList.ArrayList = &list
+	return &list
 }
 
-func (list IntPrioritizedValueList) Get(index int) interface{} {
+func (list *IntPrioritizedValueList) Get(index int) interface{} {
 	return list.data[index]
 }
 
-func (list IntPrioritizedValueList) Set(index int, value interface{}) {
+func (list *IntPrioritizedValueList) Set(index int, value interface{}) {
 	list.data[index] = value.(IntPrioritizedValue)
 }
 
-func (list IntPrioritizedValueList) GetLength() int {
+func (list *IntPrioritizedValueList) GetLength() int {
 	return len(list.data)
+}
+
+func (list *IntPrioritizedValueList) RemoveLast() interface{} {
+	valueForRemoval := list.data[list.GetLength()-1]
+	list.data = list.data[0 : list.GetLength()-1]
+	return valueForRemoval
+}
+
+func (list *IntPrioritizedValueList) Add(value interface{}) {
+	list.data = append(list.data, value.(IntPrioritizedValue))
 }
 
 type IntPriorityComparator struct{ comparator.AbstractComparator }
@@ -89,22 +99,32 @@ type Float32PrioritizedValueList struct {
 	arraylist.AbstractArrayList
 }
 
-func NewFloat32PrioritizedValueList(arr []Float32PrioritizedValue) Float32PrioritizedValueList {
+func NewFloat32PrioritizedValueList(arr []Float32PrioritizedValue) *Float32PrioritizedValueList {
 	list := Float32PrioritizedValueList{arr, arraylist.AbstractArrayList{}}
-	list.AbstractArrayList.ArrayList = list
-	return list
+	list.AbstractArrayList.ArrayList = &list
+	return &list
 }
 
-func (list Float32PrioritizedValueList) Get(index int) interface{} {
+func (list *Float32PrioritizedValueList) Get(index int) interface{} {
 	return list.data[index]
 }
 
-func (list Float32PrioritizedValueList) Set(index int, value interface{}) {
+func (list *Float32PrioritizedValueList) Set(index int, value interface{}) {
 	list.data[index] = value.(Float32PrioritizedValue)
 }
 
-func (list Float32PrioritizedValueList) GetLength() int {
+func (list *Float32PrioritizedValueList) GetLength() int {
 	return len(list.data)
+}
+
+func (list *Float32PrioritizedValueList) RemoveLast() interface{} {
+	valueForRemoval := list.data[list.GetLength()-1]
+	list.data = list.data[0 : list.GetLength()-1]
+	return valueForRemoval
+}
+
+func (list *Float32PrioritizedValueList) Add(value interface{}) {
+	list.data = append(list.data, value.(Float32PrioritizedValue))
 }
 
 type Float32PriorityComparator struct{ comparator.AbstractComparator }
@@ -145,22 +165,32 @@ type Float64PrioritizedValueList struct {
 	arraylist.AbstractArrayList
 }
 
-func NewFloat64PrioritizedValueList(arr []Float64PrioritizedValue) Float64PrioritizedValueList {
+func NewFloat64PrioritizedValueList(arr []Float64PrioritizedValue) *Float64PrioritizedValueList {
 	list := Float64PrioritizedValueList{arr, arraylist.AbstractArrayList{}}
-	list.AbstractArrayList.ArrayList = list
-	return list
+	list.AbstractArrayList.ArrayList = &list
+	return &list
 }
 
-func (list Float64PrioritizedValueList) Get(index int) interface{} {
+func (list *Float64PrioritizedValueList) Get(index int) interface{} {
 	return list.data[index]
 }
 
-func (list Float64PrioritizedValueList) Set(index int, value interface{}) {
+func (list *Float64PrioritizedValueList) Set(index int, value interface{}) {
 	list.data[index] = value.(Float64PrioritizedValue)
 }
 
-func (list Float64PrioritizedValueList) GetLength() int {
+func (list *Float64PrioritizedValueList) GetLength() int {
 	return len(list.data)
+}
+
+func (list *Float64PrioritizedValueList) RemoveLast() interface{} {
+	valueForRemoval := list.data[list.GetLength()-1]
+	list.data = list.data[0 : list.GetLength()-1]
+	return valueForRemoval
+}
+
+func (list *Float64PrioritizedValueList) Add(value interface{}) {
+	list.data = append(list.data, value.(Float64PrioritizedValue))
 }
 
 type Float64PriorityComparator struct{ comparator.AbstractComparator }
@@ -201,22 +231,32 @@ type StringPrioritizedValueList struct {
 	arraylist.AbstractArrayList
 }
 
-func NewStringPrioritizedValueList(arr []StringPrioritizedValue) StringPrioritizedValueList {
+func NewStringPrioritizedValueList(arr []StringPrioritizedValue) *StringPrioritizedValueList {
 	list := StringPrioritizedValueList{arr, arraylist.AbstractArrayList{}}
-	list.AbstractArrayList.ArrayList = list
-	return list
+	list.AbstractArrayList.ArrayList = &list
+	return &list
 }
 
-func (list StringPrioritizedValueList) Get(index int) interface{} {
+func (list *StringPrioritizedValueList) Get(index int) interface{} {
 	return list.data[index]
 }
 
-func (list StringPrioritizedValueList) Set(index int, value interface{}) {
+func (list *StringPrioritizedValueList) Set(index int, value interface{}) {
 	list.data[index] = value.(StringPrioritizedValue)
 }
 
-func (list StringPrioritizedValueList) GetLength() int {
+func (list *StringPrioritizedValueList) GetLength() int {
 	return len(list.data)
+}
+
+func (list *StringPrioritizedValueList) RemoveLast() interface{} {
+	valueForRemoval := list.data[list.GetLength()-1]
+	list.data = list.data[0 : list.GetLength()-1]
+	return valueForRemoval
+}
+
+func (list *StringPrioritizedValueList) Add(value interface{}) {
+	list.data = append(list.data, value.(StringPrioritizedValue))
 }
 
 type StringPriorityComparator struct{ comparator.AbstractComparator }
