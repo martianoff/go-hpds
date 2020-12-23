@@ -19,6 +19,13 @@ func TestUnionFind_FindInSet(t *testing.T) {
 	assert.Equal(t, 3, node.GetValue())
 }
 
+func TestUnionFind_Has(t *testing.T) {
+	union := NewUnionFind()
+	union.FindInSet(3)
+	assert.Equal(t, true, union.Has(3))
+	assert.Equal(t, false, union.Has(2))
+}
+
 func TestUnionFind_FindInSetTwoUnions(t *testing.T) {
 	union := NewUnionFind()
 	union.FindInSet(3)
