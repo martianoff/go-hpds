@@ -5,7 +5,7 @@ import (
 	"testing"
 )
 
-func getIntPrioritizedValues() IntPrioritizedValueList {
+func getIntPrioritizedValues() *IntPrioritizedValueList {
 	arr := []IntPrioritizedValue{NewIntPrioritizedValue(21, 5), NewIntPrioritizedValue(2, 7), NewIntPrioritizedValue(432, 1)}
 	return NewIntPrioritizedValueList(arr)
 }
@@ -52,7 +52,7 @@ func TestPriorityQueue_EnqueueInt(t *testing.T) {
 	assert.Equal(t, 44, pq.Top().GetPriority())
 }
 
-func getFloat32PrioritizedValues() Float32PrioritizedValueList {
+func getFloat32PrioritizedValues() *Float32PrioritizedValueList {
 	arr := []Float32PrioritizedValue{NewFloat32PrioritizedValue(float32(21), 5), NewFloat32PrioritizedValue(float32(2), 7), NewFloat32PrioritizedValue(float32(432), 1)}
 	return NewFloat32PrioritizedValueList(arr)
 }
@@ -99,7 +99,7 @@ func TestPriorityQueue_EnqueueFloat32(t *testing.T) {
 	assert.Equal(t, 44, pq.Top().GetPriority())
 }
 
-func getFloat64PrioritizedValues() Float64PrioritizedValueList {
+func getFloat64PrioritizedValues() *Float64PrioritizedValueList {
 	arr := []Float64PrioritizedValue{NewFloat64PrioritizedValue(float64(21), 5), NewFloat64PrioritizedValue(float64(2), 7), NewFloat64PrioritizedValue(float64(432), 1)}
 	return NewFloat64PrioritizedValueList(arr)
 }
@@ -146,7 +146,7 @@ func TestPriorityQueue_EnqueueFloat64(t *testing.T) {
 	assert.Equal(t, 44, pq.Top().GetPriority())
 }
 
-func getStringPrioritizedValues() StringPrioritizedValueList {
+func getStringPrioritizedValues() *StringPrioritizedValueList {
 	arr := []StringPrioritizedValue{NewStringPrioritizedValue("dog", 5), NewStringPrioritizedValue("cat", 7), NewStringPrioritizedValue("bird", 1)}
 	return NewStringPrioritizedValueList(arr)
 }

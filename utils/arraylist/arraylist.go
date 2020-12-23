@@ -4,6 +4,9 @@ type ArrayList interface {
 	Get(index int) interface{}
 	Set(index int, value interface{})
 	Swap(from int, to int)
+	Add(value interface{})
+	RemoveAt(index int)
+	RemoveLast() interface{}
 	GetLength() int
 }
 
@@ -22,21 +25,31 @@ type IntArrayList struct {
 	AbstractArrayList
 }
 
-func NewIntArrayList(arr []int) IntArrayList {
+func NewIntArrayList(arr []int) *IntArrayList {
 	list := IntArrayList{arr, AbstractArrayList{}}
-	list.AbstractArrayList.ArrayList = list
-	return list
+	list.AbstractArrayList.ArrayList = &list
+	return &list
 }
 
-func (list IntArrayList) Get(index int) interface{} {
+func (list *IntArrayList) Get(index int) interface{} {
 	return list.data[index]
 }
 
-func (list IntArrayList) Set(index int, value interface{}) {
+func (list *IntArrayList) Set(index int, value interface{}) {
 	list.data[index] = value.(int)
 }
 
-func (list IntArrayList) GetLength() int {
+func (list *IntArrayList) RemoveLast() interface{} {
+	valueForRemoval := list.data[list.GetLength()-1]
+	list.data = list.data[0 : list.GetLength()-1]
+	return valueForRemoval
+}
+
+func (list *IntArrayList) Add(value interface{}) {
+	list.data = append(list.data, value.(int))
+}
+
+func (list *IntArrayList) GetLength() int {
 	return len(list.data)
 }
 
@@ -45,21 +58,31 @@ type Float32ArrayList struct {
 	AbstractArrayList
 }
 
-func NewFloat32ArrayList(arr []float32) Float32ArrayList {
+func NewFloat32ArrayList(arr []float32) *Float32ArrayList {
 	list := Float32ArrayList{arr, AbstractArrayList{}}
-	list.AbstractArrayList.ArrayList = list
-	return list
+	list.AbstractArrayList.ArrayList = &list
+	return &list
 }
 
-func (list Float32ArrayList) Get(index int) interface{} {
+func (list *Float32ArrayList) Get(index int) interface{} {
 	return list.data[index]
 }
 
-func (list Float32ArrayList) Set(index int, value interface{}) {
+func (list *Float32ArrayList) Set(index int, value interface{}) {
 	list.data[index] = value.(float32)
 }
 
-func (list Float32ArrayList) GetLength() int {
+func (list *Float32ArrayList) RemoveLast() interface{} {
+	valueForRemoval := list.data[list.GetLength()-1]
+	list.data = list.data[0 : list.GetLength()-1]
+	return valueForRemoval
+}
+
+func (list *Float32ArrayList) Add(value interface{}) {
+	list.data = append(list.data, value.(float32))
+}
+
+func (list *Float32ArrayList) GetLength() int {
 	return len(list.data)
 }
 
@@ -68,21 +91,31 @@ type Float64ArrayList struct {
 	AbstractArrayList
 }
 
-func NewFloat64ArrayList(arr []float64) Float64ArrayList {
+func NewFloat64ArrayList(arr []float64) *Float64ArrayList {
 	list := Float64ArrayList{arr, AbstractArrayList{}}
-	list.AbstractArrayList.ArrayList = list
-	return list
+	list.AbstractArrayList.ArrayList = &list
+	return &list
 }
 
-func (list Float64ArrayList) Get(index int) interface{} {
+func (list *Float64ArrayList) Get(index int) interface{} {
 	return list.data[index]
 }
 
-func (list Float64ArrayList) Set(index int, value interface{}) {
+func (list *Float64ArrayList) Set(index int, value interface{}) {
 	list.data[index] = value.(float64)
 }
 
-func (list Float64ArrayList) GetLength() int {
+func (list *Float64ArrayList) RemoveLast() interface{} {
+	valueForRemoval := list.data[list.GetLength()-1]
+	list.data = list.data[0 : list.GetLength()-1]
+	return valueForRemoval
+}
+
+func (list *Float64ArrayList) Add(value interface{}) {
+	list.data = append(list.data, value.(float64))
+}
+
+func (list *Float64ArrayList) GetLength() int {
 	return len(list.data)
 }
 
@@ -91,20 +124,30 @@ type StringArrayList struct {
 	AbstractArrayList
 }
 
-func NewStringArrayList(arr []string) StringArrayList {
+func NewStringArrayList(arr []string) *StringArrayList {
 	list := StringArrayList{arr, AbstractArrayList{}}
-	list.AbstractArrayList.ArrayList = list
-	return list
+	list.AbstractArrayList.ArrayList = &list
+	return &list
 }
 
-func (list StringArrayList) Get(index int) interface{} {
+func (list *StringArrayList) Get(index int) interface{} {
 	return list.data[index]
 }
 
-func (list StringArrayList) Set(index int, value interface{}) {
+func (list *StringArrayList) Set(index int, value interface{}) {
 	list.data[index] = value.(string)
 }
 
-func (list StringArrayList) GetLength() int {
+func (list *StringArrayList) RemoveLast() interface{} {
+	valueForRemoval := list.data[list.GetLength()-1]
+	list.data = list.data[0 : list.GetLength()-1]
+	return valueForRemoval
+}
+
+func (list *StringArrayList) Add(value interface{}) {
+	list.data = append(list.data, value.(string))
+}
+
+func (list *StringArrayList) GetLength() int {
 	return len(list.data)
 }
