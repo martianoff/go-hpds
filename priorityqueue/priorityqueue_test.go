@@ -1,6 +1,7 @@
 package priorityqueue
 
 import (
+	"github.com/maksimru/go-hpds/utils/arraylist"
 	"github.com/stretchr/testify/assert"
 	"testing"
 )
@@ -15,6 +16,11 @@ func TestPriorityQueue_NewPriorityQueueInt(t *testing.T) {
 	assert.Equal(t, 3, pq.GetLength())
 	assert.Equal(t, 2, pq.Top().GetValue())
 	assert.Equal(t, 7, pq.Top().GetPriority())
+}
+
+func TestPriorityQueue_NewPriorityQueueTopNil(t *testing.T) {
+	pq := NewPriorityQueue(arraylist.NewIntArrayList([]int{}), NewIntPriorityComparator())
+	assert.Equal(t, nil, pq.Top())
 }
 
 func TestPriorityQueue_DequeueInt(t *testing.T) {
