@@ -314,6 +314,9 @@ func (p PriorityQueue) Dequeue() PrioritizedValue {
 // Return value on top
 // O(1) time, O(1) space
 func (p PriorityQueue) Top() PrioritizedValue {
+	if p.heap.Top() == nil {
+		return nil
+	}
 	return p.heap.Top().(PrioritizedValue)
 }
 

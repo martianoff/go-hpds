@@ -20,6 +20,11 @@ func TestMinHeap_NewMinHeap(t *testing.T) {
 	assert.Equal(t, true, heap.IsValid())
 }
 
+func TestMinHeap_NewEmptyMaxHeap(t *testing.T) {
+	heap := NewMinHeap(arraylist.NewIntArrayList([]int{}), nil)
+	assert.Equal(t, nil, heap.Top())
+}
+
 func TestMinHeap_Remove(t *testing.T) {
 	arr := getArray()
 	slice := arr[:]
