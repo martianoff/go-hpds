@@ -20,6 +20,11 @@ func TestMaxHeap_NewMaxHeap(t *testing.T) {
 	assert.Equal(t, true, heap.IsValid())
 }
 
+func TestMaxHeap_NewEmptyMaxHeap(t *testing.T) {
+	heap := NewMaxHeap(arraylist.NewIntArrayList([]int{}), nil)
+	assert.Equal(t, nil, heap.Top())
+}
+
 func TestMaxHeap_Remove(t *testing.T) {
 	arr := getArray()
 	slice := arr[:]

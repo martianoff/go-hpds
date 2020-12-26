@@ -132,6 +132,9 @@ func (heap *MinHeap) swap(srcIndex int, dstIndex int) {
 // Return value on top
 // O(1) time, O(1) space
 func (heap *MinHeap) Top() interface{} {
+	if heap.data.GetLength() == 0 {
+		return nil
+	}
 	return heap.data.Get(0)
 }
 
