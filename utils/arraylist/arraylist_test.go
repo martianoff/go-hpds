@@ -48,6 +48,14 @@ func TestIntArrayList_Remove(t *testing.T) {
 	assert.Equal(t, 1, c.GetLength())
 }
 
+func TestIntArrayList_Clean(t *testing.T) {
+	c := NewIntArrayList(make([]int, 0))
+	c.Add(50)
+	c.Add(32)
+	c.Clean()
+	assert.Equal(t, 0, c.GetLength())
+}
+
 func TestIntArrayList_Swap(t *testing.T) {
 	arr := getArrayInt()
 	slice := arr[:]
