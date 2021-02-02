@@ -123,6 +123,14 @@ func TestFloat32ArrayList_Remove(t *testing.T) {
 	assert.Equal(t, 1, c.GetLength())
 }
 
+func TestFloat32ArrayList_Clean(t *testing.T) {
+	c := NewFloat32ArrayList(make([]float32, 0))
+	c.Add(float32(50))
+	c.Add(float32(32))
+	c.Clean()
+	assert.Equal(t, 0, c.GetLength())
+}
+
 func getArrayFloat64() [10]float64 {
 	return [...]float64{0, 5, 1, 6, 8, 3, 5, 9, 2, 6}
 }
@@ -178,6 +186,14 @@ func TestFloat64ArrayList_Remove(t *testing.T) {
 	assert.Equal(t, 1, c.GetLength())
 }
 
+func TestFloat64ArrayList_Clean(t *testing.T) {
+	c := NewFloat64ArrayList(make([]float64, 0))
+	c.Add(float64(50))
+	c.Add(float64(32))
+	c.Clean()
+	assert.Equal(t, 0, c.GetLength())
+}
+
 func getArrayString() [10]string {
 	return [...]string{"a", "b", "c", "d", "e", "f", "g", "h", "i", "j"}
 }
@@ -231,4 +247,12 @@ func TestStringArrayList_Remove(t *testing.T) {
 	assert.Equal(t, "foo", c.Get(0))
 	assert.Panics(t, func() { c.Get(1) })
 	assert.Equal(t, 1, c.GetLength())
+}
+
+func TestStringArrayList_Clean(t *testing.T) {
+	c := NewStringArrayList(make([]string, 0))
+	c.Add("foo")
+	c.Add("bar")
+	c.Clean()
+	assert.Equal(t, 0, c.GetLength())
 }
