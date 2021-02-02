@@ -8,6 +8,7 @@ type ArrayList interface {
 	RemoveAt(index int)
 	RemoveLast() interface{}
 	GetLength() int
+	Clean()
 }
 
 type AbstractArrayList struct {
@@ -53,6 +54,10 @@ func (list *IntArrayList) GetLength() int {
 	return len(list.data)
 }
 
+func (list *IntArrayList) Clean() {
+	list.data = nil
+}
+
 type Float32ArrayList struct {
 	data []float32
 	AbstractArrayList
@@ -84,6 +89,10 @@ func (list *Float32ArrayList) Add(value interface{}) {
 
 func (list *Float32ArrayList) GetLength() int {
 	return len(list.data)
+}
+
+func (list *Float32ArrayList) Clean() {
+	list.data = nil
 }
 
 type Float64ArrayList struct {
@@ -119,6 +128,10 @@ func (list *Float64ArrayList) GetLength() int {
 	return len(list.data)
 }
 
+func (list *Float64ArrayList) Clean() {
+	list.data = nil
+}
+
 type StringArrayList struct {
 	data []string
 	AbstractArrayList
@@ -150,4 +163,8 @@ func (list *StringArrayList) Add(value interface{}) {
 
 func (list *StringArrayList) GetLength() int {
 	return len(list.data)
+}
+
+func (list *StringArrayList) Clean() {
+	list.data = nil
 }

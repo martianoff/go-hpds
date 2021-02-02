@@ -12,6 +12,7 @@ type Heap interface {
 	Remove() interface{}
 	Add(value interface{})
 	IsEmpty() bool
+	Clean()
 
 	init()
 	siftdown(index int)
@@ -163,4 +164,12 @@ func (heap *MaxHeap) Add(value interface{}) {
 // O(1) time, O(1) space
 func (heap *MaxHeap) IsEmpty() bool {
 	return heap.length == 0
+}
+
+// Removes all elements from the heap
+// Return nil
+// O(1) time, O(1) space
+func (heap *MaxHeap) Clean() {
+	heap.data.Clean()
+	heap.length = 0
 }

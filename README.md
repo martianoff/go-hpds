@@ -190,6 +190,7 @@ heap.Remove() //returns 9
 | MaxHeap  | IsValid  | O(N)  | O(1)  | Checks heap is valid1 |
 | MaxHeap  | IsEmpty  | O(1)  | O(1)  | Checks heap is empty |
 | MaxHeap  | GetLength | O(1)  |  O(1)  | Gets length of the heap |
+| MaxHeap  | Clean | O(1)  |  O(1)  | Removes all elements from the heap |
 | MaxHeap  | NewMaxHeap | O(N)  |  O(1)  | Build heap |
 ---
 
@@ -216,6 +217,7 @@ heap.Remove() //returns 0
 | MinHeap  | IsValid  | O(N)  | O(1)  | Checks heap is valid1 |
 | MinHeap  | IsEmpty  | O(1)  | O(1)  | Checks heap is empty |
 | MinHeap  | GetLength | O(1)  |  O(1)  | Gets length of the heap |
+| MinHeap  | Clean | O(1)  |  O(1)  | Removes all elements from the heap |
 | MinHeap  | NewMinHeap | O(N)  |  O(1)  | Build heap |
 ---
 
@@ -243,6 +245,7 @@ for !pq.IsEmpty() {
 | PriorityQueue  | Top  | O(1)  | O(1)  | Get top of priority queue |
 | PriorityQueue  | IsEmpty  | O(1)  | O(1)  | Checks priority queue is empty |
 | PriorityQueue  | GetLength | O(1)  |  O(1)  | Gets length of the priority queue |
+| PriorityQueue  | Clean | O(1)  |  O(1)  | Removes all elements from the priority queue |
 | PriorityQueue  | NewPriorityQueue | O(N)  |  O(1)  | Build priority queue |
 ---
 
