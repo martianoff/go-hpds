@@ -44,6 +44,15 @@ func TestMaxHeap_Remove(t *testing.T) {
 	assert.Equal(t, true, heap.IsValid())
 }
 
+func TestMaxHeap_Clean(t *testing.T) {
+	arr := getArray()
+	slice := arr[:]
+	heap := NewMaxHeap(arraylist.NewIntArrayList(slice), nil)
+	heap.Clean()
+	assert.Equal(t, true, heap.IsEmpty())
+	assert.Equal(t, true, heap.IsValid())
+}
+
 func TestMaxHeap_Add(t *testing.T) {
 	arr := getArray()
 	slice := arr[:]

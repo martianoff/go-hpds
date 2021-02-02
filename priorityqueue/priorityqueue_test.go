@@ -18,6 +18,13 @@ func TestPriorityQueue_NewPriorityQueueInt(t *testing.T) {
 	assert.Equal(t, 7, pq.Top().GetPriority())
 }
 
+func TestPriorityQueue_CleanInt(t *testing.T) {
+	pq := NewPriorityQueue(getIntPrioritizedValues(), NewIntPriorityComparator())
+	pq.Clean()
+	assert.Equal(t, 0, pq.GetLength())
+	assert.Equal(t, nil, pq.Top())
+}
+
 func TestPriorityQueue_NewPriorityQueueTopNil(t *testing.T) {
 	pq := NewPriorityQueue(arraylist.NewIntArrayList([]int{}), NewIntPriorityComparator())
 	assert.Equal(t, nil, pq.Top())
@@ -70,6 +77,13 @@ func TestPriorityQueue_NewPriorityQueueFloat32(t *testing.T) {
 	assert.Equal(t, 7, pq.Top().GetPriority())
 }
 
+func TestPriorityQueue_CleanFloat32(t *testing.T) {
+	pq := NewPriorityQueue(getFloat32PrioritizedValues(), NewFloat32PriorityComparator())
+	pq.Clean()
+	assert.Equal(t, 0, pq.GetLength())
+	assert.Equal(t, nil, pq.Top())
+}
+
 func TestPriorityQueue_DequeueFloat32(t *testing.T) {
 	pq := NewPriorityQueue(getFloat32PrioritizedValues(), NewFloat32PriorityComparator())
 	item := pq.Dequeue()
@@ -117,6 +131,13 @@ func TestPriorityQueue_NewPriorityQueueFloat64(t *testing.T) {
 	assert.Equal(t, 7, pq.Top().GetPriority())
 }
 
+func TestPriorityQueue_CleanFloat64(t *testing.T) {
+	pq := NewPriorityQueue(getFloat64PrioritizedValues(), NewFloat64PriorityComparator())
+	pq.Clean()
+	assert.Equal(t, 0, pq.GetLength())
+	assert.Equal(t, nil, pq.Top())
+}
+
 func TestPriorityQueue_DequeueFloat64(t *testing.T) {
 	pq := NewPriorityQueue(getFloat64PrioritizedValues(), NewFloat64PriorityComparator())
 	item := pq.Dequeue()
@@ -162,6 +183,13 @@ func TestPriorityQueue_NewPriorityQueueString(t *testing.T) {
 	assert.Equal(t, 3, pq.GetLength())
 	assert.Equal(t, "cat", pq.Top().GetValue())
 	assert.Equal(t, 7, pq.Top().GetPriority())
+}
+
+func TestPriorityQueue_CleanString(t *testing.T) {
+	pq := NewPriorityQueue(getStringPrioritizedValues(), NewStringPriorityComparator())
+	pq.Clean()
+	assert.Equal(t, 0, pq.GetLength())
+	assert.Equal(t, nil, pq.Top())
 }
 
 func TestPriorityQueue_DequeueString(t *testing.T) {

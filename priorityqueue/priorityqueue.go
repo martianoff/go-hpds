@@ -61,6 +61,10 @@ func (list *IntPrioritizedValueList) Add(value interface{}) {
 	list.data = append(list.data, value.(IntPrioritizedValue))
 }
 
+func (list *IntPrioritizedValueList) Clean() {
+	list.data = nil
+}
+
 type IntPriorityComparator struct{ comparator.AbstractComparator }
 
 func NewIntPriorityComparator() *IntPriorityComparator {
@@ -125,6 +129,10 @@ func (list *Float32PrioritizedValueList) RemoveLast() interface{} {
 
 func (list *Float32PrioritizedValueList) Add(value interface{}) {
 	list.data = append(list.data, value.(Float32PrioritizedValue))
+}
+
+func (list *Float32PrioritizedValueList) Clean() {
+	list.data = nil
 }
 
 type Float32PriorityComparator struct{ comparator.AbstractComparator }
@@ -193,6 +201,10 @@ func (list *Float64PrioritizedValueList) Add(value interface{}) {
 	list.data = append(list.data, value.(Float64PrioritizedValue))
 }
 
+func (list *Float64PrioritizedValueList) Clean() {
+	list.data = nil
+}
+
 type Float64PriorityComparator struct{ comparator.AbstractComparator }
 
 func NewFloat64PriorityComparator() *Float64PriorityComparator {
@@ -257,6 +269,10 @@ func (list *StringPrioritizedValueList) RemoveLast() interface{} {
 
 func (list *StringPrioritizedValueList) Add(value interface{}) {
 	list.data = append(list.data, value.(StringPrioritizedValue))
+}
+
+func (list *StringPrioritizedValueList) Clean() {
+	list.data = nil
 }
 
 type StringPriorityComparator struct{ comparator.AbstractComparator }
@@ -332,4 +348,11 @@ func (p PriorityQueue) GetLength() int {
 // O(1) time, O(1) space
 func (p PriorityQueue) IsEmpty() bool {
 	return p.heap.IsEmpty()
+}
+
+// Removes all elements from priority queue
+// Return nil
+// O(1) time, O(1) space
+func (p PriorityQueue) Clean() {
+	p.heap.Clean()
 }
